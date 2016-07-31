@@ -1,0 +1,59 @@
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+def siteUrl = 'https://github.com/greenspand/kotlin-extensions'
+def codeRepositoryUrl = 'https://github.com/greenspand/kotlin-extensions.git'
+def issuesUrl = 'https://github.com/greenspand/kotlin-extensions/issues'
+
+
+bintray {
+    user = project.hasProperty('bintrayPrivateUser') ? project.bintrayPrivateUser : System.getenv('BINTRAY_USER')
+    key = project.hasProperty('bintrayPrivateKey') ? project.bintrayPrivateKey : System.getenv('BINTRAY_PASSWORD')
+
+    configurations = ['archives']
+    publish = true
+    pkg {
+        repo = 'greenspand-libs'
+        userOrg = 'greenlibs'
+        name = 'kotlin-extensions'
+        desc = 'This is a small utility library containing kotlin extension methods for android projects'
+        websiteUrl = siteUrl
+        issueTrackerUrl = issuesUrl
+        vcsUrl = codeRepositoryUrl
+        licenses = []
+        labels = ['android', 'library','kotlin', 'kotlin', 'android', 'kotlin-extensions']
+    }
+}
+
+install {
+    repositories.mavenInstaller {
+        pom {
+            project {
+                packaging 'aar'
+                name project.name
+                url siteUrl
+                scm {
+                    connection codeRepositoryUrl
+                    developerConnection codeRepositoryUrl
+                    url siteUrl
+
+                }
+            }
+        }
+    }
+}
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+artifacts {
+    archives sourcesJar
+}
+
+configurations {
+    archives {
+        extendsFrom configurations.default
+    }
+}
