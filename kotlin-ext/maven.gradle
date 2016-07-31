@@ -21,25 +21,31 @@ bintray {
         issueTrackerUrl = issuesUrl
         vcsUrl = codeRepositoryUrl
         licenses = []
-        labels = ['android', 'library','kotlin', 'kotlin', 'android', 'kotlin-extensions']
+        labels = ['library', 'kotlin', 'android', 'kotlin-extensions']
     }
 }
 
 install {
     repositories.mavenInstaller {
-        pom {
-            project {
-                packaging 'aar'
-                name project.name
+        pom.project {
+            packaging 'aar'
+            name project.name
+            url siteUrl
+            scm {
+                connection codeRepositoryUrl
+                developerConnection codeRepositoryUrl
                 url siteUrl
-                scm {
-                    connection codeRepositoryUrl
-                    developerConnection codeRepositoryUrl
-                    url siteUrl
 
+            }
+            licenses {
+                license { // HARDCODED
+                    name 'GPL-3.0'
+                    url 'https://www.gnu.org/licenses/gpl.txt'
+                    distribution 'repo'
                 }
             }
         }
+
     }
 }
 

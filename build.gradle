@@ -19,7 +19,7 @@ allprojects {
         jcenter()
         maven { url('https://oss.jfrog.org/artifactory/oss-snapshot-local') }
         maven {
-            url  "https://bintray.com/greenlibs/greenspand-libs"
+            url  "https://dl.bintray.com/greenlibs/greenspand-libs"
             credentials {
                 username project.hasProperty('bintrayPrivateUser') ? project.bintrayPrivateUser : System.getenv('BINTRAY_USER')
                 password project.hasProperty('bintrayPrivateUser') ? project.bintrayPrivateUser : System.getenv('BINTRAY_PASSWORD')

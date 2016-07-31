@@ -6,6 +6,7 @@ def versionMinor = 0
 def versionPatch = 1
 
 group 'com.greenspnd'
+
 version "${versionMajor}.${versionMinor}.${versionPatch}"
 android {
     compileSdkVersion 24
