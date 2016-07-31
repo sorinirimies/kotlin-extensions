@@ -20,7 +20,7 @@ bintray {
         websiteUrl = siteUrl
         issueTrackerUrl = issuesUrl
         vcsUrl = codeRepositoryUrl
-        licenses = []
+        licenses = ['MIT']
         labels = ['library', 'kotlin', 'android', 'kotlin-extensions']
     }
 }
