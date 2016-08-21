@@ -10,7 +10,7 @@ group 'com.greenspnd'
 version "${versionMajor}.${versionMinor}.${versionPatch}"
 android {
     compileSdkVersion 24
-    buildToolsVersion "24.0.0"
+    buildToolsVersion "24.0.1"
 
     defaultConfig {
         minSdkVersion 16
@@ -34,7 +34,7 @@ android {
     }
 }
 
-final COMPAT_LIB_V = '24.1.1'
+final COMPAT_LIB_V = '24.2.0'
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
