@@ -3,14 +3,14 @@ apply plugin: 'kotlin-android'
 
 def versionMajor = 0
 def versionMinor = 0
-def versionPatch = 2
+def versionPatch = 3
 
 group 'com.greenspnd'
 
 version "${versionMajor}.${versionMinor}.${versionPatch}"
 android {
     compileSdkVersion 24
-    buildToolsVersion "24.0.1"
+    buildToolsVersion "24.0.2"
 
     defaultConfig {
         minSdkVersion 16
