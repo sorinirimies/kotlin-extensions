@@ -30,5 +30,6 @@ inline fun notification(context: Context, func : Notification.Builder.() -> Unit
 
  fun snack(container: View, msg : String, duration: Int = Snackbar.LENGTH_SHORT): Snackbar{
     val snackbar = Snackbar.make(container, msg, duration)
+     snackbar.show()
     return snackbar
 }
