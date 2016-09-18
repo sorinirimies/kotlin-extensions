@@ -3,7 +3,7 @@ apply plugin: 'kotlin-android'
 
 def versionMajor = 0
 def versionMinor = 0
-def versionPatch = 3
+def versionPatch = 4
 
 group 'com.greenspnd'
 
@@ -34,7 +34,7 @@ android {
     }
 }
 
-final COMPAT_LIB_V = '24.2.0'
+final COMPAT_LIB_V = '24.2.1'
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
