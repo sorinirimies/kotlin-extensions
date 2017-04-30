@@ -2,7 +2,7 @@ apply plugin: 'com.jfrog.artifactory'
 apply plugin: 'maven-publish'
 apply plugin: 'android-maven'
 
-group = 'com.moovel'
+group = 'com.greenspand'
 
 task sourceJar(type: Jar) {
     classifier = 'sources'
