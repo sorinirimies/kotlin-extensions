@@ -20,9 +20,10 @@ android {
     }
 
     lintOptions {
-        abortOnError false
+        abortOnError true
+        absolutePaths false
+        lintConfig rootProject.file('lint.xml')
     }
-
     buildTypes {
         release {
             minifyEnabled false
