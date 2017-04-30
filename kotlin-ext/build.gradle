@@ -1,13 +1,11 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-
-def versionMajor = 0
-def versionMinor = 0
-def versionPatch = 5
+apply plugin: "com.jfrog.artifactory"
 
 group 'com.greenspnd'
 
-version "${versionMajor}.${versionMinor}.${versionPatch}"
+version "$libraryVersion"
+
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
@@ -44,3 +42,5 @@ dependencies {
 }
 
 apply from: 'maven.gradle'
+apply from: '../checkstyle.gradle'
+apply from: '../snapshot.gradle'

@@ -9,8 +9,9 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7'
+        classpath 'org.jfrog.buildinfo:build-info-extractor-gradle:4.1.1'
     }
 }
 
@@ -22,7 +23,7 @@ allprojects {
         mavenLocal()
         // then snapshot
         maven {
-            url "http://artifactory.moovel.com:8080/artifactory/libs-snapshot-local"
+            url "http://colosus-de-linux.ejykhx3vyg2trryh.myfritz.net:8081/artifactory/libs-snapshot-local"
             credentials {
                 username = project.hasProperty('artifactoryUser') ? project.artifactoryUser : System.getenv('ARTIFACTORY_USER')
                 password = project.hasProperty('artifactoryPass') ? project.artifactoryPass : System.getenv('ARTIFACTORY_PASSWORD')
@@ -36,10 +37,18 @@ allprojects {
                 password project.hasProperty('bintrayPrivateUser') ? project.bintrayPrivateUser : System.getenv('BINTRAY_PASSWORD')
             }
         }
-        mavenLocal()
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+apply plugin: 'idea'
+
+idea {
+    module {
+        downloadJavadoc = true
+        downloadSources = true
+    }
 }

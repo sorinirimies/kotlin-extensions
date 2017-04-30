@@ -1,2 +1,3 @@
-include ':app', ':kotlin-ext'
+//include ':app'
+include ':kotlin-ext'
 
