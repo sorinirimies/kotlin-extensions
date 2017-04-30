@@ -39,8 +39,8 @@ artifactory {
     publish {
         repository {
             repoKey = version.endsWith('SNAPSHOT') ? 'libs-snapshot-local' : 'libs-release-local'
-            username = project.hasProperty('artifactoryPrivateUser') ? project.artifactoryUser : System.getenv('ARTIFACTORY_USER')
-            password = project.hasProperty('artifactoryPrivateUser') ? project.artifactoryPass : System.getenv('ARTIFACTORY_PASSWORD')
+            username = project.hasProperty('artifactoryPrivateUser') ? project.artifactoryPrivateUser : System.getenv('ARTIFACTORY_USER')
+            password = project.hasProperty('artifactoryPrivatePass') ? project.artifactoryPrivatePass : System.getenv('ARTIFACTORY_PASSWORD')
             //snapshot = true
         }
         defaults {

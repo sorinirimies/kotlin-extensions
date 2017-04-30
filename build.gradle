@@ -25,8 +25,8 @@ allprojects {
         maven {
             url "http://colosus-de-linux.ejykhx3vyg2trryh.myfritz.net:8081/artifactory/libs-snapshot-local"
             credentials {
-                username = project.hasProperty('artifactoryPrivateUser') ? project.artifactoryUser : System.getenv('ARTIFACTORY_USER')
-                password = project.hasProperty('artifactoryPrivatePass') ? project.artifactoryPass : System.getenv('ARTIFACTORY_PASSWORD')
+                username = project.hasProperty('artifactoryPrivateUser') ? project.artifactoryPrivateUser : System.getenv('ARTIFACTORY_USER')
+                password = project.hasProperty('artifactoryPrivatePass') ? project.artifactoryPrivatePass : System.getenv('ARTIFACTORY_PASSWORD')
             }
         }
         maven { url('https://oss.jfrog.org/artifactory/oss-snapshot-local') }
