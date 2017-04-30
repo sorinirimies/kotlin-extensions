@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: "com.jfrog.artifactory"
 
-group 'com.greenspnd'
+group 'com.greenspand'
 
 version "$libraryVersion"
 
