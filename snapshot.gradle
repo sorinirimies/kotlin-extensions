@@ -15,7 +15,7 @@ artifactoryPublish {
 
 publishing {
     publications {
-        sdk(MavenPublication) {
+        kotlin(MavenPublication) {
             groupId group
             artifactId project.name
             artifact "${project.buildDir}/outputs/aar/${project.name}-release.aar"
@@ -41,11 +41,10 @@ artifactory {
             repoKey = version.endsWith('SNAPSHOT') ? 'libs-snapshot-local' : 'libs-release-local'
             username = project.hasProperty('artifactoryPrivateUser') ? project.artifactoryPrivateUser : System.getenv('ARTIFACTORY_USER')
             password = project.hasProperty('artifactoryPrivatePass') ? project.artifactoryPrivatePass : System.getenv('ARTIFACTORY_PASSWORD')
-            //snapshot = true
         }
         defaults {
             publishArtifacts = true
-            publications('sdk')
+            publications('kotlin')
             publishPom = true
             publishIvy = false
         }
