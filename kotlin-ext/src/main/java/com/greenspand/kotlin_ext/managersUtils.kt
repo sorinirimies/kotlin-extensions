@@ -1,3 +1,5 @@
+@file:JvmName("ManagerUtils")
+
 package com.greenspand.kotlin_ext
 
 import android.net.wifi.WifiConfiguration

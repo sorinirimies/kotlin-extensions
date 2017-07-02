@@ -1,7 +1,11 @@
+@file:JvmName("StorageUtils")
+
+
 package com.greenspand.kotlin_ext
 
 import android.content.SharedPreferences
 import android.database.Cursor
+import android.database.sqlite.SQLiteDatabase
 
 /**
  * Project: moovel-android
@@ -18,7 +22,19 @@ fun Cursor.getStringOrNull(columnName : String) : String? {
     val index = getColumnIndexOrThrow(columnName)
     return if(isNull(index)) null else getString(index)
 }
-
+/**
+ * SQLite transaction extension function expression
+ *
+ */
+inline fun SQLiteDatabase.transaction(body: SQLiteDatabase.() -> Unit) {
+    beginTransaction()
+    try {
+        body()
+        setTransactionSuccessful()
+    } finally {
+        endTransaction()
+    }
+}
 fun Cursor.getString(columnName: String): String = getStringOrNull(columnName)!!
 
 inline fun SharedPreferences.editPrefs(func : SharedPreferences.Editor.()->Unit){
