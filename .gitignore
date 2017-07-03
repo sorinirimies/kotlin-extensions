@@ -39,3 +39,6 @@ Thumbs.db
 .idea/workspace.xml
 /.idea/
 /build/
+
+.idea/instapk.xml
+instapk.log*
