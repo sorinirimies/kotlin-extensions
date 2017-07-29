@@ -30,24 +30,25 @@ inline fun notification(context: Context, func: Notification.Builder.() -> Unit)
     return builder.build()
 }
 
+
 /**
  * Extension function expression for creating a snack, with a given default value for length.
  * @param container where the snack is bound to
  * @param msg shown to the user
  * @param duration of the snack
  */
-fun snack(container: View, msg: String, duration: Int = Snackbar.LENGTH_SHORT): Snackbar {
-    val snackbar = Snackbar.make(container, msg, duration)
-    snackbar.show()
-    return snackbar
-}
-
 fun snackShow(container: View, msg: String, duration: Int = Snackbar.LENGTH_SHORT): Snackbar {
     val snackBar = Snackbar.make(container, msg, duration)
     snackBar.show()
     return snackBar
 }
 
+/**
+ * Extension function expression for creating a snack, with a given default value for length.
+ * @param container where the snack is bound to
+ * @param msg shown to the user
+ * @param duration of the snack
+ */
 fun snackBuild(container: View, msg: String, duration: Int = Snackbar.LENGTH_SHORT): Snackbar {
     val snackBar = Snackbar.make(container, msg, duration)
     snackBar
