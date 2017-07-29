@@ -1,3 +1,5 @@
+@file:JvmName("OperatorUtils")
+
 package com.greenspand.kotlin_ext
 
 /**

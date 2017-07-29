@@ -1,3 +1,5 @@
+@file:JvmName("CollectionUtils")
+
 
 package com.greenspand.kotlin_ext
 

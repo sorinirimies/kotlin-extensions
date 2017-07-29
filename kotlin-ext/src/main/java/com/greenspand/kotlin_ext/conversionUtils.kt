@@ -1,3 +1,6 @@
+@file:JvmName("ConversionUtils")
+
+
 package com.greenspand.kotlin_ext
 
 import android.util.Base64

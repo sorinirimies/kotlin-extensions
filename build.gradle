@@ -1,40 +1,44 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.1.2-3'
+    ext.kotlin_version = kotlinVersion
     repositories {
-        jcenter()
         mavenCentral()
+        jcenter()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.3'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
         classpath 'org.jfrog.buildinfo:build-info-extractor-gradle:4.1.1'
     }
 }
 
 allprojects {
     repositories {
-        jcenter()
-        mavenCentral()
         // check local
         mavenLocal()
+        jcenter()
+        mavenCentral()
         // then snapshot
         maven {
             url "http://colosus-de-linux.ejykhx3vyg2trryh.myfritz.net:8081/artifactory/libs-snapshot-local"
             credentials {
-                username = project.hasProperty('artifactoryPrivateUser') ? project.artifactoryPrivateUser : System.getenv('ARTIFACTORY_USER')
-                password = project.hasProperty('artifactoryPrivatePass') ? project.artifactoryPrivatePass : System.getenv('ARTIFACTORY_PASSWORD')
+                username = project.hasProperty('artifactoryPrivateUser') ? project.artifactoryPrivateUser
+                        : System.getenv('ARTIFACTORY_USER')
+                password = project.hasProperty('artifactoryPrivatePass') ? project.artifactoryPrivatePass
+                        : System.getenv('ARTIFACTORY_PASSWORD')
             }
         }
         maven { url('https://oss.jfrog.org/artifactory/oss-snapshot-local') }
         maven {
             url  "https://dl.bintray.com/greenlibs/greenspand-libs"
             credentials {
-                username project.hasProperty('bintrayPrivateUser') ? project.bintrayPrivateUser : System.getenv('BINTRAY_USER')
-                password project.hasProperty('bintrayPrivateUser') ? project.bintrayPrivateUser : System.getenv('BINTRAY_PASSWORD')
+                username project.hasProperty('bintrayPrivateUser') ? project.bintrayPrivateUser
+                        : System.getenv('BINTRAY_USER')
+                password project.hasProperty('bintrayPrivateUser') ? project.bintrayPrivateUser
+                        : System.getenv('BINTRAY_PASSWORD')
             }
         }
     }

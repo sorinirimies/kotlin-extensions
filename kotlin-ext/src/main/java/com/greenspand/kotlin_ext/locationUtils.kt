@@ -1,3 +1,5 @@
+@file:JvmName("LocationUtils")
+
 package com.greenspand.kotlin_ext
 
 import android.content.Context
