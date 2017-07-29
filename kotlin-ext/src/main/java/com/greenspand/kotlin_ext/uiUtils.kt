@@ -9,6 +9,7 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable
 import android.support.annotation.DimenRes
+import android.support.annotation.LayoutRes
 import android.support.design.widget.Snackbar
 import android.view.LayoutInflater
 import android.view.View
@@ -94,6 +95,17 @@ fun View.visible() {
 fun View.gone() {
     visibility = View.GONE
 }
+
+/**
+ * Inflates a layout based on a given layout id and viewGroup
+ * @param layoutRes the layout id
+ * @param attachToRoot
+ * @return an inflated view
+ */
+fun ViewGroup.inflate(@LayoutRes layoutRes: Int, attachToRoot: Boolean = false): View {
+    return LayoutInflater.from(context).inflate(layoutRes, this, attachToRoot)
+}
+
 
 /**
  * Inflates a layout based on a given layout id and viewgroup

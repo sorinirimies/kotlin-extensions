@@ -3,7 +3,7 @@ apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion '25.0.3'
+    buildToolsVersion '26.0.0'
 
     defaultConfig {
         applicationId "com.greenspand.kotlinext"
@@ -23,11 +23,9 @@ android {
     }
 }
 
-final COMAPT_LIBS_V = '24.2.0'
-
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile "com.android.support:appcompat-v7:${COMAPT_LIBS_V}"
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile "com.android.support:appcompat-v7:${supportlibVersion}"
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 }
