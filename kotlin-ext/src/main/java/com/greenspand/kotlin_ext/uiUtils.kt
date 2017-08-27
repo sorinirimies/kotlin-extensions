@@ -8,9 +8,13 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable
+import android.support.annotation.ColorRes
 import android.support.annotation.DimenRes
+import android.support.annotation.DrawableRes
 import android.support.annotation.LayoutRes
 import android.support.design.widget.Snackbar
+import android.support.graphics.drawable.VectorDrawableCompat
+import android.support.v4.content.ContextCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,25 +34,24 @@ inline fun notification(context: Context, func: Notification.Builder.() -> Unit)
     return builder.build()
 }
 
-
 /**
  * Extension function expression for creating a snack, with a given default value for length.
  * @param container where the snack is bound to
  * @param msg shown to the user
  * @param duration of the snack
  */
+fun snack(container: View, msg: String, duration: Int = Snackbar.LENGTH_SHORT): Snackbar {
+    val snackbar = Snackbar.make(container, msg, duration)
+    snackbar.show()
+    return snackbar
+}
+
 fun snackShow(container: View, msg: String, duration: Int = Snackbar.LENGTH_SHORT): Snackbar {
     val snackBar = Snackbar.make(container, msg, duration)
     snackBar.show()
     return snackBar
 }
 
-/**
- * Extension function expression for creating a snack, with a given default value for length.
- * @param container where the snack is bound to
- * @param msg shown to the user
- * @param duration of the snack
- */
 fun snackBuild(container: View, msg: String, duration: Int = Snackbar.LENGTH_SHORT): Snackbar {
     val snackBar = Snackbar.make(container, msg, duration)
     snackBar
@@ -86,6 +89,13 @@ fun View.setHeight(height: Int) {
 /**
  * Sets the view to visible
  */
+fun View.invisible() {
+    visibility = View.INVISIBLE
+}
+
+/**
+ * Sets the view to visible
+ */
 fun View.visible() {
     visibility = View.VISIBLE
 }
@@ -98,15 +108,21 @@ fun View.gone() {
 }
 
 /**
+ * Inflates a layout based on a given layout id and viewgroup
+ * @param res the layout id
+ * @param parent the container view
+ * @return an inflated view
+ */
+fun Context.inflate(res: Int, parent: ViewGroup? = null): View = LayoutInflater.from(this).inflate(res, parent, false)
+
+/**
  * Inflates a layout based on a given layout id and viewGroup
  * @param layoutRes the layout id
  * @param attachToRoot
  * @return an inflated view
  */
-fun ViewGroup.inflate(@LayoutRes layoutRes: Int, attachToRoot: Boolean = false): View {
-    return LayoutInflater.from(context).inflate(layoutRes, this, attachToRoot)
-}
-
+fun ViewGroup.inflate(@LayoutRes layoutRes: Int, attachToRoot: Boolean = false): View =
+        LayoutInflater.from(context).inflate(layoutRes, this, attachToRoot)
 
 /**
  * Inflates a layout based on a given layout id and viewgroup
@@ -114,19 +130,8 @@ fun ViewGroup.inflate(@LayoutRes layoutRes: Int, attachToRoot: Boolean = false):
  * @param parent the container view
  * @return an inflated view
  */
-fun Context.inflate(res: Int, parent: ViewGroup? = null): View {
-    return LayoutInflater.from(this).inflate(res, parent, false)
-}
-
-/**
- * Inflates a layout based on a given layout id and viewgroup
- * @param res the layout id
- * @param parent the container view
- * @return an inflated view
- */
-fun LayoutInflater.init(res: Int, parent: ViewGroup? = null, attachToRoot: Boolean = false): View {
-    return this.inflate(res, parent, attachToRoot)
-}
+fun LayoutInflater.init(res: Int, parent: ViewGroup? = null, attachToRoot: Boolean = false): View =
+        this.inflate(res, parent, attachToRoot)
 
 /**
  * Converts a drawable to bitmap
@@ -141,3 +146,13 @@ fun Drawable.toBitmap(): Bitmap {
     this.draw(canvas)
     return bitmap
 }
+
+
+/**Get color utility*/
+fun Context.getColorFromRes(@ColorRes colorRes: Int): Int = ContextCompat.getColor(this, colorRes)
+
+/**Get drawable extension*/
+fun Context.getDrawableFromRes(@DrawableRes colorRes: Int): Drawable = ContextCompat.getDrawable(this, colorRes)
+
+fun Context.createVectorDrawable(imgRes: Int): VectorDrawableCompat? =
+        VectorDrawableCompat.create(resources, imgRes, this.theme)
