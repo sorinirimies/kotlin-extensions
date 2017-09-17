@@ -1,5 +1,7 @@
 @file:JvmName("UiUtils")
 
+/* ktlint-disable no-wildcard-imports */
+
 package com.greenspand.kotlin_ext
 
 import android.app.AlertDialog
@@ -9,9 +11,8 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable
 import android.support.annotation.ColorRes
-import android.support.annotation.DimenRes
 import android.support.annotation.DrawableRes
-import android.support.annotation.LayoutRes
+import android.support.annotation.IntegerRes
 import android.support.design.widget.Snackbar
 import android.support.graphics.drawable.VectorDrawableCompat
 import android.support.v4.content.ContextCompat
@@ -46,16 +47,26 @@ fun snack(container: View, msg: String, duration: Int = Snackbar.LENGTH_SHORT): 
     return snackbar
 }
 
+/**
+ * Extension function expression for creating a snack, with a given default value for length.
+ * @param container where the snack is bound to
+ * @param msg shown to the user
+ * @param duration of the snack
+ */
 fun snackShow(container: View, msg: String, duration: Int = Snackbar.LENGTH_SHORT): Snackbar {
     val snackBar = Snackbar.make(container, msg, duration)
     snackBar.show()
     return snackBar
 }
 
+/**
+ * Extension function expression for creating a snack, with a given default value for length.
+ * @param container where the snack is bound to
+ * @param msg shown to the user
+ * @param duration of the snack
+ */
 fun snackBuild(container: View, msg: String, duration: Int = Snackbar.LENGTH_SHORT): Snackbar {
-    val snackBar = Snackbar.make(container, msg, duration)
-    snackBar
-    return snackBar
+    return Snackbar.make(container, msg, duration)
 }
 
 /** Extension function. Gets a view at the given index*/
@@ -71,7 +82,7 @@ operator fun ViewGroup.plusAssign(child: View) = addView(child)
  * Sets same height and width padding
  * @param dimen padding values
  */
-fun View.setSamePadding(@DimenRes dimen: Int) {
+fun View.setSamePadding(@IntegerRes dimen: Int) {
     this.setPadding(dimen, dimen, dimen, dimen)
 }
 
@@ -116,24 +127,6 @@ fun View.gone() {
 fun Context.inflate(res: Int, parent: ViewGroup? = null): View = LayoutInflater.from(this).inflate(res, parent, false)
 
 /**
- * Inflates a layout based on a given layout id and viewGroup
- * @param layoutRes the layout id
- * @param attachToRoot
- * @return an inflated view
- */
-fun ViewGroup.inflate(@LayoutRes layoutRes: Int, attachToRoot: Boolean = false): View =
-        LayoutInflater.from(context).inflate(layoutRes, this, attachToRoot)
-
-/**
- * Inflates a layout based on a given layout id and viewgroup
- * @param res the layout id
- * @param parent the container view
- * @return an inflated view
- */
-fun LayoutInflater.init(res: Int, parent: ViewGroup? = null, attachToRoot: Boolean = false): View =
-        this.inflate(res, parent, attachToRoot)
-
-/**
  * Converts a drawable to bitmap
  *
  * @param drawable drawable to convert
@@ -146,7 +139,6 @@ fun Drawable.toBitmap(): Bitmap {
     this.draw(canvas)
     return bitmap
 }
-
 
 /**Get color utility*/
 fun Context.getColorFromRes(@ColorRes colorRes: Int): Int = ContextCompat.getColor(this, colorRes)

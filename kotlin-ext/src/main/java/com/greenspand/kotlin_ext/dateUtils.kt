@@ -1,4 +1,5 @@
 @file:JvmName("DateUtils")
+/* ktlint-disable no-wildcard-imports */
 
 package com.greenspand.kotlin_ext
 
@@ -29,14 +30,6 @@ fun minutesBetweenDates(start: Date, end: Date): Int {
     return TimeUnit.MILLISECONDS.toMinutes(duration).toInt()
 }
 
-
-fun String.formatDate(): String {
-    val initialFormat = SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss'Z'", Locale.ENGLISH)
-    val format = SimpleDateFormat("yyyy-M-dd", Locale.US)
-    val date = initialFormat.parse(this)
-    return format.format(date).toString()
-}
-
 /**
  * Adds some additional minutes to the given date
  * @param minutes to be added
@@ -48,7 +41,6 @@ fun addMinutesToDate(minutes: Int, beforeTime: Date): Date {
     return Date(curTimeInMs + minutes * oneMinuteInMillis)
 }
 
-
 /** Formats in string minutes a given start and endTime Date
  * @param startTime
  * @param endTime
@@ -58,3 +50,4 @@ fun formatInMinutes(startTime: Date, endTime: Date): String {
     return String.format(Locale.getDefault(), "%s min",
             minutesBetweenDates(startTime, endTime))
 }
+

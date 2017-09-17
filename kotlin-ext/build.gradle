@@ -1,27 +1,23 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: "com.jfrog.artifactory"
+apply plugin: "org.jlleitschuh.gradle.ktlint"
 
 group 'com.greenspand'
 
 version "$libraryProdVersion"
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion 26
     buildToolsVersion "26.0.1"
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 25
+        targetSdkVersion 26
         versionCode 1
         versionName "$version"
     }
 
-    lintOptions {
-        abortOnError true
-        absolutePaths false
-        lintConfig rootProject.file('lint.xml')
-    }
     buildTypes {
         release {
             minifyEnabled false
@@ -31,14 +27,17 @@ android {
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
+    lintOptions {
+        abortOnError true
+        absolutePaths false
+    }
 }
 
 dependencies {
-    testCompile 'junit:junit:4.12'
+    testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
     compile "com.android.support:design:$supportlibVersion"
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
 }
 
 apply from: 'maven.gradle'
-apply from: '../checkstyle.gradle'
 apply from: '../snapshot.gradle'

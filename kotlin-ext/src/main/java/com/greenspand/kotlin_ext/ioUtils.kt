@@ -1,4 +1,5 @@
 @file:JvmName("IOUtils")
+/* ktlint-disable no-wildcard-imports */
 
 package com.greenspand.kotlin_ext
 

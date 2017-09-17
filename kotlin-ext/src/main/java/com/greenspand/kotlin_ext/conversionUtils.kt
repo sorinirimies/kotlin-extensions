@@ -1,5 +1,5 @@
 @file:JvmName("ConversionUtils")
-
+/* ktlint-disable no-wildcard-imports */
 
 package com.greenspand.kotlin_ext
 
@@ -9,7 +9,6 @@ import java.math.BigInteger
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 import java.nio.charset.Charset
-
 
 /**
  * Returns the integer value converted from a byte array
@@ -23,7 +22,6 @@ fun ByteArray.toInt(): Int {
 }
 
 fun Int.byteArrayFromInt(): ByteArray = BigInteger.valueOf(this.toLong()).toByteArray()
-
 
 /**
  * One way of converting int into byte array
@@ -57,7 +55,6 @@ fun IntArray.toByteArray(): ByteArray {
  */
 fun convertIntToByteArray(value: Int): ByteArray = BigInteger.valueOf(value.toLong()).toByteArray()
 
-
 fun concatenateByteArray(payload: ByteArray, value: Int): ByteArray {
     val intVal: ByteArray = value.toByteArray()
     val combined = ByteArray(payload.size + intVal.size)
@@ -66,7 +63,6 @@ fun concatenateByteArray(payload: ByteArray, value: Int): ByteArray {
     }
     return combined
 }
-
 
 /**
  * Returns the bytearray of a string, in format UTF-8
@@ -99,10 +95,8 @@ fun returnByteFromInteger(i: Int): Byte {
     return b
 }
 
-
 /**Number formatting */
 fun Double.toBigDecimal(): BigDecimal = BigDecimal.valueOf(this)
-
 
 operator fun BigDecimal.plus(a: BigDecimal) = this.add(a)
 operator fun BigDecimal.minus(a: BigDecimal) = this.subtract(a)
@@ -115,7 +109,6 @@ operator fun BigDecimal.div(a: BigDecimal) = this.divide(a)
  * @return
  */
 fun doubleFromByteArray(b: ByteArray): Double = ByteBuffer.wrap(b).double
-
 
 /**Decodes encoded Base 64 Chars*/
 fun base64Decode(s: String): ByteArray = Base64.decode(s, Base64.DEFAULT)

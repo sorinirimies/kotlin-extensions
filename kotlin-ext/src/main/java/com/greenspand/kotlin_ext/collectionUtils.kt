@@ -1,5 +1,6 @@
 @file:JvmName("CollectionUtils")
 
+/* ktlint-disable no-wildcard-imports */
 
 package com.greenspand.kotlin_ext
 
@@ -24,4 +25,11 @@ fun <T> MutableList<T>.swap(index1: Int, index2: Int) {
     val tmp = this[index1] // 'this' corresponds to the list
     this[index1] = this[index2]
     this[index2] = tmp
+}
+
+inline fun <T, R> List<T>.map(transform: (T) -> R): List<R> {
+    val result = arrayListOf<R>()
+    for (item in this)
+        result.add(transform(item))
+    return result
 }

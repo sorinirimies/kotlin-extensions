@@ -1,10 +1,10 @@
 @file:JvmName("LogUtils")
+/* ktlint-disable no-wildcard-imports */
 
 package com.greenspand.kotlin_ext
 
 import android.content.Context
 import android.util.Log
-
 
 fun Context.d(message: String) = Log.d(this.packageName, message)
 
