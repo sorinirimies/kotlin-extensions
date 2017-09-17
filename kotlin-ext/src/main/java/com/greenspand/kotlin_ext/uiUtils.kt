@@ -13,6 +13,7 @@ import android.graphics.drawable.Drawable
 import android.support.annotation.ColorRes
 import android.support.annotation.DrawableRes
 import android.support.annotation.IntegerRes
+import android.support.annotation.LayoutRes
 import android.support.design.widget.Snackbar
 import android.support.graphics.drawable.VectorDrawableCompat
 import android.support.v4.content.ContextCompat
@@ -125,6 +126,24 @@ fun View.gone() {
  * @return an inflated view
  */
 fun Context.inflate(res: Int, parent: ViewGroup? = null): View = LayoutInflater.from(this).inflate(res, parent, false)
+
+/**
+ * Inflates a layout based on a given layout id and viewGroup
+ * @param layoutRes the layout id
+ * @param attachToRoot
+ * @return an inflated view
+ */
+fun ViewGroup.inflate(@LayoutRes layoutRes: Int, attachToRoot: Boolean = false): View =
+        LayoutInflater.from(context).inflate(layoutRes, this, attachToRoot)
+
+/**
+ * Inflates a layout based on a given layout id and viewgroup
+ * @param res the layout id
+ * @param parent the container view
+ * @return an inflated view
+ */
+fun LayoutInflater.init(res: Int, parent: ViewGroup? = null, attachToRoot: Boolean = false): View =
+        this.inflate(res, parent, attachToRoot)
 
 /**
  * Converts a drawable to bitmap
