@@ -3,13 +3,33 @@ apply plugin: 'kotlin-android'
 apply plugin: "com.jfrog.artifactory"
 apply plugin: "org.jlleitschuh.gradle.ktlint"
 
-group 'com.greenspand'
+buildscript {
+    ext {
+        libraryVersion = '1.0.4'
+        supportLibVersion = '26.1.0'
+        kotlinVersion = '1.1.51'
+    }
 
-version "$libraryProdVersion"
+    repositories {
+        maven() {
+            url "https://plugins.gradle.org/m2/"
+        }
+        mavenLocal()
+        jcenter()
+        google()
+    }
+    dependencies {
+        classpath "gradle.plugin.org.jlleitschuh.gradle:ktlint-gradle:2.1.1"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+    }
+}
+
+group 'com.greenspand'
+version "$libraryVersion"
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    buildToolsVersion "26.0.2"
 
     defaultConfig {
         minSdkVersion 16
@@ -34,10 +54,10 @@ android {
 }
 
 dependencies {
-    testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
-    compile "com.android.support:design:$supportlibVersion"
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+    testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion"
+    compile "com.android.support:design:$supportLibVersion"
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlinVersion"
 }
 
 apply from: 'maven.gradle'
-apply from: '../snapshot.gradle'
+//apply from: '../snapshot.gradle'
