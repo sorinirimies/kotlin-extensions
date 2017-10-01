@@ -5,7 +5,7 @@ buildscript {
         mavenLocal()
         jcenter()
         google()
-        maven(){
+        maven() {
             url "https://plugins.gradle.org/m2/"
         }
         mavenCentral()
@@ -25,13 +25,10 @@ allprojects {
         google()
         jcenter()
         mavenCentral()
-        maven(){
-            url "https://plugins.gradle.org/m2/"
-        }
+        maven() { url "https://plugins.gradle.org/m2/" }
         maven { url('https://oss.jfrog.org/artifactory/oss-snapshot-local') }
-        //bintray
         maven {
-            url  "https://dl.bintray.com/greenlibs/greenspand-libs"
+            url "https://dl.bintray.com/greenlibs/greenspand-libs"
             credentials {
                 username project.hasProperty('bintrayPrivateUser') ? project.bintrayPrivateUser
                         : System.getenv('BINTRAY_USER')
@@ -39,16 +36,6 @@ allprojects {
                         : System.getenv('BINTRAY_PASSWORD')
             }
         }
-        // then snapshot
-//        maven {
-//            url "http://colosus-de-linux.ejykhx3vyg2trryh.myfritz.net:8081/artifactory/libs-snapshot-local"
-//            credentials {
-//                username = project.hasProperty('artifactoryPrivateUser') ? project.artifactoryPrivateUser
-//                        : System.getenv('ARTIFACTORY_USER')
-//                password = project.hasProperty('artifactoryPrivatePass') ? project.artifactoryPrivatePass
-//                        : System.getenv('ARTIFACTORY_PASSWORD')
-//            }
-//        }
     }
 }
 
