@@ -27,6 +27,13 @@ fun Context.toast(msg: String, length: Int = Toast.LENGTH_SHORT) = Toast.makeTex
 inline fun alertDialog(context: Context, func: AlertDialog.Builder.() -> Unit): AlertDialog {
     val builder = AlertDialog.Builder(context)
     builder.func()
+    builder.show()
+    return builder.create()
+}
+
+inline fun alertDialogBuilder(context: Context, func: AlertDialog.Builder.() -> Unit): AlertDialog {
+    val builder = AlertDialog.Builder(context)
+    builder.func()
     return builder.create()
 }
 
@@ -43,18 +50,6 @@ inline fun notification(context: Context, func: Notification.Builder.() -> Unit)
  * @param duration of the snack
  */
 fun snack(container: View, msg: String, duration: Int = Snackbar.LENGTH_SHORT): Snackbar {
-    val snackbar = Snackbar.make(container, msg, duration)
-    snackbar.show()
-    return snackbar
-}
-
-/**
- * Extension function expression for creating a snack, with a given default value for length.
- * @param container where the snack is bound to
- * @param msg shown to the user
- * @param duration of the snack
- */
-fun snackShow(container: View, msg: String, duration: Int = Snackbar.LENGTH_SHORT): Snackbar {
     val snackBar = Snackbar.make(container, msg, duration)
     snackBar.show()
     return snackBar
@@ -147,8 +142,6 @@ fun Context.inflate(res: Int, parent: ViewGroup? = null): View = LayoutInflater.
 
 /**
  * Converts a drawable to bitmap
- *
- * @param drawable drawable to convert
  * @return bitmap
  */
 fun Drawable.toBitmap(): Bitmap {
@@ -163,7 +156,7 @@ fun Drawable.toBitmap(): Bitmap {
 fun Context.getColorFromRes(@ColorRes colorRes: Int): Int = ContextCompat.getColor(this, colorRes)
 
 /**Get drawable extension*/
-fun Context.getDrawableFromRes(@DrawableRes colorRes: Int): Drawable = ContextCompat.getDrawable(this, colorRes)
+fun Context.getDrawableFromRes(@DrawableRes colorRes: Int): Drawable? = ContextCompat.getDrawable(this, colorRes)
 
 fun Context.createVectorDrawable(imgRes: Int): VectorDrawableCompat? =
         VectorDrawableCompat.create(resources, imgRes, this.theme)

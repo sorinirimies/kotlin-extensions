@@ -9,14 +9,6 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 
 /**
- * Project: moovel-android
- *
- * Copyright (c) 2016 Daimler AG / Moovel GmbH<br>
- *
- * Created by Sorin Albu-Irimies on 03/04/16 <br>
- */
-
-/**
  * Database cursor iterator
  */
 fun Cursor.getStringOrNull(columnName: String): String? {

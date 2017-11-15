@@ -15,11 +15,10 @@ import java.util.*
  * Gets a complete address from anywhere where there is a provided context
  */
 fun Context.getStreetAddress(lat: Double, lng: Double): List<Address>? {
-    try {
-        val geocoder = Geocoder(this, Locale.getDefault())
-        val addresses: List<Address>? = geocoder.getFromLocation(lat, lng, 1)
-        return addresses
+    return try {
+        val geoCoder = Geocoder(this, Locale.getDefault())
+        geoCoder.getFromLocation(lat, lng, 1)
     } catch (e: Exception) {
-        return null
+        null
     }
 }
