@@ -35,11 +35,13 @@ android {
         targetSdkVersion 27
         versionCode 1
         versionName "$version"
+        resConfigs "en"
     }
 
     buildTypes {
         release {
             minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
