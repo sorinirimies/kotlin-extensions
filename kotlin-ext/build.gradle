@@ -5,9 +5,9 @@ apply plugin: "org.jlleitschuh.gradle.ktlint"
 
 buildscript {
     ext {
-        libraryVersion = '1.0.9'
-        supportLibVersion = '27.0.2'
-        kotlinVersion = '1.2.10'
+        libraryVersion = '1.1.0'
+        supportLibVersion = '27.1.1'
+        kotlinVersion = '1.2.41'
     }
     repositories {
         maven() {
