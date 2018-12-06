@@ -2,16 +2,16 @@
 
 buildscript {
     repositories {
-        mavenLocal()
-        jcenter()
         google()
+        jcenter()
+        mavenLocal()
         maven() {
             url "https://plugins.gradle.org/m2/"
         }
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.2'
+        classpath 'com.android.tools.build:gradle:3.2.1'
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
         classpath 'org.jfrog.buildinfo:build-info-extractor-gradle:4.1.1'
@@ -20,9 +20,9 @@ buildscript {
 
 allprojects {
     repositories {
-        mavenLocal()
         google()
         jcenter()
+        mavenLocal()
         mavenCentral()
         maven() { url "https://plugins.gradle.org/m2/" }
         maven { url('https://oss.jfrog.org/artifactory/oss-snapshot-local') }
