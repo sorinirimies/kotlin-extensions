@@ -24,15 +24,6 @@ allprojects {
         mavenCentral()
         maven { url "https://plugins.gradle.org/m2/" }
         maven { url "https://maven.google.com" }
-        maven {
-            url "https://dl.bintray.com/sorinirimies/greenibs"
-            credentials {
-                username project.hasProperty('bintrayPrivateUser') ? project.bintrayPrivateUser
-                        : System.getenv('BINTRAY_USER')
-                password project.hasProperty('bintrayPrivateUser') ? project.bintrayPrivateUser
-                        : System.getenv('BINTRAY_PASSWORD')
-            }
-        }
     }
 }
 

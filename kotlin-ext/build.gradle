@@ -20,7 +20,7 @@ buildscript {
     }
 }
 
-group 'com.greenspand'
+group 'com.sorinirimies'
 version "$libraryVersion"
 
 android {

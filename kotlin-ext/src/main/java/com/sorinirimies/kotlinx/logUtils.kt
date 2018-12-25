@@ -1,7 +1,6 @@
 @file:JvmName("LogUtils")
-/* ktlint-disable no-wildcard-imports */
 
-package com.greenspand.kotlinx
+package com.sorinirimies.kotlinx
 
 import android.content.Context
 import android.util.Log
