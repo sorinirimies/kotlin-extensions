@@ -1,3 +1,3 @@
--keep class com.greenspand.** { *; }
--keepnames class com.greenspand.** { *; }
--dontwarn com.greenspand.**
+-keep class com.sorinirimies.** { *; }
+-keepnames class com.sorinirimies.** { *; }
+-dontwarn com.sorinirimies.**
