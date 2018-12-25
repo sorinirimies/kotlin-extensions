@@ -131,7 +131,7 @@ fun ViewGroup.inflate(@LayoutRes layoutRes: Int, attachToRoot: Boolean = false):
         LayoutInflater.from(context).inflate(layoutRes, this, attachToRoot)
 
 /**
- * Inflates a layout based on a given layout id and viewgroup
+ * Inflates a layout based on a given layout id and [ViewGroup].
  * @param res the layout id
  * @param parent the container view
  * @return an inflated view
@@ -140,31 +140,44 @@ fun LayoutInflater.init(res: Int, parent: ViewGroup? = null, attachToRoot: Boole
         this.inflate(res, parent, attachToRoot)
 
 /**
- * Inflates a layout based on a given layout id and viewgroup
+ * Inflates a layout based on a given layout id and [ViewGroup].
  * @param res the layout id
  * @param parent the container view
  * @return an inflated view
  */
-fun Context.inflate(res: Int, parent: ViewGroup? = null): View = LayoutInflater.from(this)
-        .inflate(res, parent, false)
+fun Context.inflate(res: Int, parent: ViewGroup? = null): View =
+        LayoutInflater.from(this).inflate(res, parent, false)
 
 /**
- * Converts a drawable to bitmap
+ * Converts a [Drawable] to [Bitmap].
  * @return bitmap
  */
 fun Drawable.toBitmap(): Bitmap {
-    val bitmap = Bitmap.createBitmap(this.intrinsicWidth, this.intrinsicHeight, Bitmap.Config.ARGB_8888)
+    val bitmap = Bitmap.createBitmap(
+            this.intrinsicWidth,
+            this.intrinsicHeight,
+            Bitmap.Config.ARGB_8888
+    )
     val canvas = Canvas(bitmap)
     this.setBounds(0, 0, canvas.width, canvas.height)
     this.draw(canvas)
     return bitmap
 }
 
-/**Get color utility*/
-fun Context.getColorFromRes(@ColorRes colorRes: Int): Int = ContextCompat.getColor(this, colorRes)
+/**
+ * Get color utility.
+ */
+fun Context.getColorFromRes(@ColorRes colorRes: Int): Int =
+        ContextCompat.getColor(this, colorRes)
 
-/**Get drawable extension*/
-fun Context.getDrawableFromRes(@DrawableRes colorRes: Int): Drawable? = ContextCompat.getDrawable(this, colorRes)
+/**
+ * Get drawable extension.
+ */
+fun Context.getDrawableFromRes(@DrawableRes colorRes: Int): Drawable? =
+        ContextCompat.getDrawable(this, colorRes)
 
+/**
+ * Get a vector drawable.
+ */
 fun Context.createVectorDrawable(imgRes: Int): VectorDrawableCompat? =
         VectorDrawableCompat.create(resources, imgRes, this.theme)
