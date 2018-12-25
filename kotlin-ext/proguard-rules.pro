@@ -1,3 +1,0 @@
--keep class com.sorinirimies.** { *; }
--keepnames class com.sorinirimies.** { *; }
--dontwarn com.sorinirimies.**

@@ -8,10 +8,7 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable
-import android.support.annotation.ColorRes
-import android.support.annotation.DrawableRes
-import android.support.annotation.IntegerRes
-import android.support.annotation.LayoutRes
+import android.support.annotation.*
 import android.support.design.widget.Snackbar
 import android.support.graphics.drawable.VectorDrawableCompat
 import android.support.v4.content.ContextCompat
@@ -20,11 +17,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 
+@Keep
 fun Context.toast(msg: String, length: Int = Toast.LENGTH_SHORT) = Toast.makeText(this, msg, length).show()
 
 /**
  * Extension function expression to create an [AlertDialog].
  */
+@Keep
 inline fun alertDialog(context: Context, func: AlertDialog.Builder.() -> Unit): AlertDialog {
     val builder = AlertDialog.Builder(context)
     builder.func()
@@ -35,6 +34,7 @@ inline fun alertDialog(context: Context, func: AlertDialog.Builder.() -> Unit): 
 /**
  * Extension function expression to expose the [AlertDialog.Builder] API.
  */
+@Keep
 inline fun alertDialogBuilder(context: Context, func: AlertDialog.Builder.() -> Unit): AlertDialog {
     val builder = AlertDialog.Builder(context)
     builder.func()
@@ -44,6 +44,7 @@ inline fun alertDialogBuilder(context: Context, func: AlertDialog.Builder.() -> 
 /**
  * Extension function expression to create a [Notification].
  */
+@Keep
 inline fun notification(context: Context, func: Notification.Builder.() -> Unit): Notification {
     val builder = Notification.Builder(context)
     builder.func()
@@ -56,6 +57,7 @@ inline fun notification(context: Context, func: Notification.Builder.() -> Unit)
  * @param msg shown to the user
  * @param duration of the snack
  */
+@Keep
 fun snack(container: View, msg: String, duration: Int = Snackbar.LENGTH_SHORT): Snackbar {
     val snackBar = Snackbar.make(container, msg, duration)
     snackBar.show()
@@ -68,23 +70,28 @@ fun snack(container: View, msg: String, duration: Int = Snackbar.LENGTH_SHORT): 
  * @param msg shown to the user
  * @param duration of the snack
  */
+@Keep
 fun snackBuild(container: View, msg: String, duration: Int = Snackbar.LENGTH_SHORT): Snackbar {
     return Snackbar.make(container, msg, duration)
 }
 
 /** Extension function. Gets a view at the given index*/
+@Keep
 operator fun ViewGroup.get(index: Int): View? = getChildAt(index)
 
 /**removes a child view*/
+@Keep
 operator fun ViewGroup.minusAssign(child: View) = removeView(child)
 
 /** Adds a child view*/
+@Keep
 operator fun ViewGroup.plusAssign(child: View) = addView(child)
 
 /**
  * Sets same height and width padding
  * @param dimen padding values
  */
+@Keep
 fun View.setSamePadding(@IntegerRes dimen: Int) {
     this.setPadding(dimen, dimen, dimen, dimen)
 }
@@ -94,6 +101,7 @@ fun View.setSamePadding(@IntegerRes dimen: Int) {
  * @param height to set
  *
  */
+@Keep
 fun View.setHeight(height: Int) {
     val params = layoutParams
     params.height = height
@@ -103,6 +111,7 @@ fun View.setHeight(height: Int) {
 /**
  * Sets the view to visible
  */
+@Keep
 fun View.invisible() {
     visibility = View.INVISIBLE
 }
@@ -110,6 +119,7 @@ fun View.invisible() {
 /**
  * Sets the view to visible
  */
+@Keep
 fun View.visible() {
     visibility = View.VISIBLE
 }
@@ -117,6 +127,7 @@ fun View.visible() {
 /**
  * Sets the view to gone
  */
+@Keep
 fun View.gone() {
     visibility = View.GONE
 }
@@ -127,6 +138,7 @@ fun View.gone() {
  * @param attachToRoot
  * @return an inflated view
  */
+@Keep
 fun ViewGroup.inflate(@LayoutRes layoutRes: Int, attachToRoot: Boolean = false): View =
         LayoutInflater.from(context).inflate(layoutRes, this, attachToRoot)
 
@@ -136,6 +148,7 @@ fun ViewGroup.inflate(@LayoutRes layoutRes: Int, attachToRoot: Boolean = false):
  * @param parent the container view
  * @return an inflated view
  */
+@Keep
 fun LayoutInflater.init(res: Int, parent: ViewGroup? = null, attachToRoot: Boolean = false): View =
         this.inflate(res, parent, attachToRoot)
 
@@ -145,6 +158,7 @@ fun LayoutInflater.init(res: Int, parent: ViewGroup? = null, attachToRoot: Boole
  * @param parent the container view
  * @return an inflated view
  */
+@Keep
 fun Context.inflate(res: Int, parent: ViewGroup? = null): View =
         LayoutInflater.from(this).inflate(res, parent, false)
 
@@ -152,6 +166,7 @@ fun Context.inflate(res: Int, parent: ViewGroup? = null): View =
  * Converts a [Drawable] to [Bitmap].
  * @return bitmap
  */
+@Keep
 fun Drawable.toBitmap(): Bitmap {
     val bitmap = Bitmap.createBitmap(
             this.intrinsicWidth,
@@ -167,17 +182,20 @@ fun Drawable.toBitmap(): Bitmap {
 /**
  * Get color utility.
  */
+@Keep
 fun Context.getColorFromRes(@ColorRes colorRes: Int): Int =
         ContextCompat.getColor(this, colorRes)
 
 /**
  * Get drawable extension.
  */
+@Keep
 fun Context.getDrawableFromRes(@DrawableRes colorRes: Int): Drawable? =
         ContextCompat.getDrawable(this, colorRes)
 
 /**
  * Get a vector drawable.
  */
+@Keep
 fun Context.createVectorDrawable(imgRes: Int): VectorDrawableCompat? =
         VectorDrawableCompat.create(resources, imgRes, this.theme)

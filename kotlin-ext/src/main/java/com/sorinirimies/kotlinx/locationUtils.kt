@@ -5,6 +5,7 @@ package com.sorinirimies.kotlinx
 import android.content.Context
 import android.location.Address
 import android.location.Geocoder
+import android.support.annotation.Keep
 import java.util.*
 
 /**
@@ -13,6 +14,7 @@ import java.util.*
  * @param lng
  * @return a list of [Address]
  */
+@Keep
 fun Context.getStreetAddress(lat: Double, lng: Double): List<Address>? {
     return try {
         val geoCoder = Geocoder(this, Locale.getDefault())

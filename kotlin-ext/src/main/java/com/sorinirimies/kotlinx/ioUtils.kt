@@ -3,6 +3,7 @@
 package com.sorinirimies.kotlinx
 
 import android.content.res.AssetManager
+import android.support.annotation.Keep
 import java.nio.charset.Charset
 
 /**
@@ -11,6 +12,7 @@ import java.nio.charset.Charset
  * @param filename
  * @return a stringified file
  */
+@Keep
 fun AssetManager.fileAsString(subdirectory: String, filename: String): String {
     return open("$subdirectory/$filename").use {
         it.readBytes().toString(Charset.defaultCharset())
