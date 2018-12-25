@@ -38,7 +38,7 @@ install {
             }
             licenses {
                 license { // HARDCODED
-                    name 'GPL-3.0'
+                    name 'Apache-2.0'
                     url 'https://www.gnu.org/licenses/gpl.txt'
                     distribution 'repo'
                 }
