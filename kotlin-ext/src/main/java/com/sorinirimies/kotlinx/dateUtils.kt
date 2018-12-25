@@ -7,13 +7,8 @@ import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
 
-/**
- * Created by mihai on 7/2/2017.
- */
-
 @SuppressLint("ConstantLocale")
 private val SIMPLE_DATE_FORMAT = SimpleDateFormat("HH:mm", Locale.getDefault())
-private val MINUTES_OF_HOUR = 60
 
 fun formatDate(date: Date): String {
     return SIMPLE_DATE_FORMAT.format(date)

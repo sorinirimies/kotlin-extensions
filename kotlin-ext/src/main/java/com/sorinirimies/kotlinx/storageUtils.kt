@@ -7,7 +7,8 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 
 /**
- * Database cursor iterator
+ * Database cursor iterator.
+ * @param columnName
  */
 fun Cursor.getStringOrNull(columnName: String): String? {
     val index = getColumnIndexOrThrow(columnName)
@@ -15,8 +16,7 @@ fun Cursor.getStringOrNull(columnName: String): String? {
 }
 
 /**
- * SQLite transaction extension function expression
- *
+ * SQLite transaction extension function expression.
  */
 inline fun SQLiteDatabase.transaction(body: SQLiteDatabase.() -> Unit) {
     beginTransaction()
@@ -28,8 +28,9 @@ inline fun SQLiteDatabase.transaction(body: SQLiteDatabase.() -> Unit) {
     }
 }
 
-fun Cursor.getString(columnName: String): String = getStringOrNull(columnName)!!
-
+/**
+ * Extension function expression for editing preferences.
+ */
 inline fun SharedPreferences.editPrefs(func: SharedPreferences.Editor.() -> Unit) {
     val editor = edit()
     editor.func()

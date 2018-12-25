@@ -8,10 +8,10 @@ import android.location.Geocoder
 import java.util.*
 
 /**
- * Created by mihai on 9/11/2016.
- */
-/**
- * Gets a complete address from anywhere where there is a provided context
+ * Gets a complete address from anywhere where there is a provided context.
+ * @param lat
+ * @param lng
+ * @return a list of [Address]
  */
 fun Context.getStreetAddress(lat: Double, lng: Double): List<Address>? {
     return try {

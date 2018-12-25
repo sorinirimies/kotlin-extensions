@@ -22,6 +22,9 @@ import android.widget.Toast
 
 fun Context.toast(msg: String, length: Int = Toast.LENGTH_SHORT) = Toast.makeText(this, msg, length).show()
 
+/**
+ * Extension function expression to create an [AlertDialog].
+ */
 inline fun alertDialog(context: Context, func: AlertDialog.Builder.() -> Unit): AlertDialog {
     val builder = AlertDialog.Builder(context)
     builder.func()
@@ -29,12 +32,18 @@ inline fun alertDialog(context: Context, func: AlertDialog.Builder.() -> Unit): 
     return builder.create()
 }
 
+/**
+ * Extension function expression to expose the [AlertDialog.Builder] API.
+ */
 inline fun alertDialogBuilder(context: Context, func: AlertDialog.Builder.() -> Unit): AlertDialog {
     val builder = AlertDialog.Builder(context)
     builder.func()
     return builder.create()
 }
 
+/**
+ * Extension function expression to create a [Notification].
+ */
 inline fun notification(context: Context, func: Notification.Builder.() -> Unit): Notification {
     val builder = Notification.Builder(context)
     builder.func()

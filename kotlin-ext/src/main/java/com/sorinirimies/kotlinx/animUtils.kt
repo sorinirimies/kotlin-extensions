@@ -8,7 +8,7 @@ import android.view.animation.AccelerateInterpolator
 import android.view.animation.Interpolator
 
 /**
- * Extension function for simple view fade in and out animations
+ * Extension function for simple view fade in and out animations.
  * @param duration of the animation
  * @param scale of the the view
  * @param alpha visibility of the the view
@@ -34,7 +34,7 @@ fun View.animateScaleAlpha(delay: Long = 0,
 }
 
 /**
- * Animates a view upwards
+ * Animates a view upwards.
  * @param translateY the vertical vector
  * @param duration the default duration
  * @param interpolator the default interpolator
@@ -50,7 +50,7 @@ fun View.animateUp(translateY: Float = 0f,
 }
 
 /**
- * Animates a view to a visible state, with an alpha transition
+ * Animates a view to a visible state, with an alpha transition.
  * @param duration the default duration
  * @param alpha the given opacity level
  * @param interpolator the default interpolator
@@ -64,7 +64,7 @@ fun View.animateVisible(duration: Long = 300,
 }
 
 /**
- * Animates a view to gone, with an alpha transition
+ * Animates a view to gone, with an alpha transition.
  * @param duration the default duration
  * @param alpha the given opacity level
  * @param interpolator the default interpolator
@@ -81,7 +81,7 @@ fun View.animateGone(duration: Long = 300,
 }
 
 /**
- * Animates a view downwards
+ * Animates a view downwards.
  * @param translateY the vertical vector
  * @param duration the default duration
  * @param interpolator the default interpolator
