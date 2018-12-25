@@ -12,9 +12,8 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.1'
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
-        classpath 'org.jfrog.buildinfo:build-info-extractor-gradle:4.1.1'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
     }
 }
 
@@ -22,12 +21,11 @@ allprojects {
     repositories {
         google()
         jcenter()
-        mavenLocal()
         mavenCentral()
-        maven() { url "https://plugins.gradle.org/m2/" }
-        maven { url('https://oss.jfrog.org/artifactory/oss-snapshot-local') }
+        maven { url "https://plugins.gradle.org/m2/" }
+        maven { url "https://maven.google.com" }
         maven {
-            url "https://dl.bintray.com/greenlibs/greenspand-libs"
+            url "https://dl.bintray.com/sorinirimies/greenibs"
             credentials {
                 username project.hasProperty('bintrayPrivateUser') ? project.bintrayPrivateUser
                         : System.getenv('BINTRAY_USER')

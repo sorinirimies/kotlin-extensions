@@ -1,9 +1,9 @@
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-def siteUrl = 'https://github.com/greenspand/kotlin-extensions'
-def codeRepositoryUrl = 'https://github.com/greenspand/kotlin-extensions.git'
-def issuesUrl = 'https://github.com/greenspand/kotlin-extensions/issues'
+def siteUrl = 'https://github.com/sorinirimies/kotlin-extensions'
+def codeRepositoryUrl = 'https://github.com/sorinirimies/kotlin-extensions.git'
+def issuesUrl = 'https://github.com/sorinirimies/kotlin-extensions'
 
 
 bintray {
@@ -13,15 +13,14 @@ bintray {
     configurations = ['archives']
     publish = true
     pkg {
-        repo = 'greenspand-libs'
-        userOrg = 'greenlibs'
+        repo = 'greenlibs'
         name = 'kotlin-extensions'
         desc = 'This is a small utility library containing kotlin extension methods for android projects'
         websiteUrl = siteUrl
         issueTrackerUrl = issuesUrl
         vcsUrl = codeRepositoryUrl
         licenses = ['MIT']
-        labels = ['library', 'kotlin', 'android', 'kotlin-extensions']
+        labels = ['library', 'kotlin', 'android', 'kotlin-extensions', 'utils']
     }
 }
 
