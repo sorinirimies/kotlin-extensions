@@ -2,7 +2,7 @@
 
 /* ktlint-disable no-wildcard-imports */
 
-package com.greenspand.kotlin_ext
+package com.greenspand.kotlinx
 
 import android.app.AlertDialog
 import android.app.Notification

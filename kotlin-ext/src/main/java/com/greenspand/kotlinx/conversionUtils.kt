@@ -1,7 +1,7 @@
 @file:JvmName("ConversionUtils")
 /* ktlint-disable no-wildcard-imports */
 
-package com.greenspand.kotlin_ext
+package com.greenspand.kotlinx
 
 import android.util.Base64
 import java.math.BigDecimal

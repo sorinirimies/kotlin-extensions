@@ -1,7 +1,7 @@
 @file:JvmName("AnimUtils")
 /* ktlint-disable no-wildcard-imports */
 
-package com.greenspand.kotlin_ext
+package com.greenspand.kotlinx
 
 import android.support.v4.view.ViewCompat
 import android.view.View

@@ -2,7 +2,7 @@
 
 /* ktlint-disable no-wildcard-imports */
 
-package com.greenspand.kotlin_ext
+package com.greenspand.kotlinx
 
 /** Null check for multiple objects at a time*/
 inline fun <T : Any, R : Any> Collection<T?>.whenAllNotNull(block: (List<T>) -> R) {

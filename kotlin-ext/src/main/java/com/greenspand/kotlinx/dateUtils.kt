@@ -1,7 +1,7 @@
 @file:JvmName("DateUtils")
 /* ktlint-disable no-wildcard-imports */
 
-package com.greenspand.kotlin_ext
+package com.greenspand.kotlinx
 
 import java.text.SimpleDateFormat
 import java.util.*

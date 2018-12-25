@@ -1,7 +1,7 @@
 @file:JvmName("IOUtils")
 /* ktlint-disable no-wildcard-imports */
 
-package com.greenspand.kotlin_ext
+package com.greenspand.kotlinx
 
 import android.content.res.AssetManager
 import java.nio.charset.Charset
